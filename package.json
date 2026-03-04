@@ -1,0 +1,17 @@
+{
+  "name": "mineflayer-afker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal Mineflayer bot for joining a server with optional command and viewer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "mineflayer": "^4.20.1",
+    "prismarine-viewer": "^1.28.0"
+  }
+}
