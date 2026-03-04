@@ -5,24 +5,6 @@ const fail = (message) => {
   process.exit(1);
 };
 
-const isIgnorableSkinJsonError = (err) => {
-  const message = err?.message || "";
-  const stack = err?.stack || "";
-  return (
-    message.includes("is not valid JSON") &&
-    stack.includes("extractSkinInformation")
-  );
-};
-
-process.on("uncaughtException", (err) => {
-  if (isIgnorableSkinJsonError(err)) {
-    console.warn("Ignored malformed skin JSON from server packet.");
-    return;
-  }
-  console.error("Fatal uncaught exception:", err);
-  process.exit(1);
-});
-
 const requiredEnv = (name) => {
   const value = process.env[name];
   if (!value || !value.trim()) fail(`Missing required env var: ${name}`);

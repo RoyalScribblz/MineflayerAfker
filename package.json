@@ -5,13 +5,15 @@
   "description": "Minimal Mineflayer bot for joining a server with optional command and viewer",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "patch-package"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
     "mineflayer": "^4.20.1",
+    "patch-package": "^8.0.1",
     "prismarine-viewer": "^1.28.0"
   }
 }

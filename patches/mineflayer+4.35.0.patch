@@ -1,0 +1,18 @@
+diff --git a/node_modules/mineflayer/lib/plugins/entities.js b/node_modules/mineflayer/lib/plugins/entities.js
+index bd0514e..ac3a2ae 100644
+--- a/node_modules/mineflayer/lib/plugins/entities.js
++++ b/node_modules/mineflayer/lib/plugins/entities.js
+@@ -953,7 +953,12 @@ function extractSkinInformation (properties) {
+     return undefined
+   }
+ 
+-  const skinTexture = JSON.parse(Buffer.from(props.textures.value, 'base64').toString('utf8'))
++  let skinTexture
++  try {
++    skinTexture = JSON.parse(Buffer.from(props.textures.value, 'base64').toString('utf8'))
++  } catch {
++    return undefined
++  }
+ 
+   const skinTextureUrl = skinTexture?.textures?.SKIN?.url ?? undefined
+   const skinTextureModel = skinTexture?.textures?.SKIN?.metadata?.model ?? undefined
