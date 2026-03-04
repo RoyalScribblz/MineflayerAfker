@@ -30,7 +30,8 @@ jobs:
       - name: Build and push image
         shell: bash
         run: |
-          IMAGE="ghcr.io/${{ github.repository }}"
+          IMAGE_REPO="$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')"
+          IMAGE="ghcr.io/${IMAGE_REPO}"
           TAG="${{ github.event.inputs.tag }}"
 
           docker build -t "${IMAGE}:${TAG}" .
